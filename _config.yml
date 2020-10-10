@@ -19,7 +19,7 @@ locale                   : "en-US"
 title                    : "Gurunath's webpage"
 title_separator          : "-"
 subtitle                 : # site tagline that appears below site title in masthead
-name                     : "Gurunat Kadam"
+name                     : "Gurunath Kadam"
 description              : "Computer Science Graduate Student"
 url                      : "https://gakadam.github.io" # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
