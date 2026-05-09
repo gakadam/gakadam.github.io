@@ -116,8 +116,8 @@ analytics:
 author:
   name             : "Gurunath Kadam"
   avatar           : "/assets/images/bio-photo.jpg"
-  bio              : "Graduate Student, Computer Science"
-  location         :
+  bio              : "Sr. DL Perf Architect<br>NVIDIA"
+  location         : "Austin, TX"
   email            : gurunath.kadam@gmail.com
   # fediverse      : "@you@instance.social"  # used for fediverse:creator meta tag
   links:
