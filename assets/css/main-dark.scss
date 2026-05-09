@@ -1,0 +1,9 @@
+---
+# Dark stylesheet, swapped in at runtime by the theme toggle in head.html
+search: false
+---
+
+@charset "utf-8";
+
+@import "minimal-mistakes/skins/dark";
+@import "minimal-mistakes";

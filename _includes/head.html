@@ -18,9 +18,41 @@
 </script>
 
 <!-- For all browsers -->
-<link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+<link id="theme-light" rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+<link id="theme-dark" rel="stylesheet" href="{{ '/assets/css/main-dark.css' | relative_url }}" disabled>
 <link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+<style>
+  .theme-toggle { background: transparent; border: 0; cursor: pointer; color: inherit; font-size: inherit; padding: 0.5em; }
+  .theme-toggle .theme-icon-sun { display: none; }
+  [data-theme="dark"] .theme-toggle .theme-icon-sun { display: inline-block; }
+  [data-theme="dark"] .theme-toggle .theme-icon-moon { display: none; }
+</style>
+
+<script>
+  (function() {
+    var saved = localStorage.getItem('theme');
+    var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    var theme = saved || (prefersDark ? 'dark' : 'light');
+    function apply(t) {
+      var light = document.getElementById('theme-light');
+      var dark = document.getElementById('theme-dark');
+      if (light) light.disabled = (t === 'dark');
+      if (dark) dark.disabled = (t !== 'dark');
+      document.documentElement.setAttribute('data-theme', t);
+    }
+    apply(theme);
+    document.addEventListener('click', function(e) {
+      if (e.target.closest && e.target.closest('.theme-toggle')) {
+        var current = document.documentElement.getAttribute('data-theme');
+        var next = current === 'dark' ? 'light' : 'dark';
+        apply(next);
+        localStorage.setItem('theme', next);
+      }
+    });
+  })();
+</script>
 
 {% if site.head_scripts %}
   {% for script in site.head_scripts %}
